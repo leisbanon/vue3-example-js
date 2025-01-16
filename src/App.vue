@@ -3,13 +3,13 @@
     <el-container>
       <el-aside width="160px">
         <el-scrollbar>
-          <el-menu :unique-opened="true">
+          <el-menu :unique-opened="true" :default-active="defaultActive">
             <el-sub-menu v-for="(item1, index1) of routers" :key="`${index1}`" :index="`${index1}`">
               <template #title>{{ item1.meta.name }}</template>
               <el-menu-item-group>
-                <el-menu-item v-for="(item2, index2) of item1.children" :key="`${index1}-${index2}`"
-                  :index="`${index1}-${index2}`">
-                  <RouterLink :to="`${item1.path}/${item2.path}`">{{ item2.meta.name }}</RouterLink>
+                <el-menu-item class="px-[0px]" v-for="(item2, index2) of item1.children" :key="`${index1}-${index2}`"
+                  @click="$router.push({ path: `${item1.path}/${item2.path}` })" :index="`${index1}-${index2}`">
+                  {{ item2.meta.name }}
                 </el-menu-item>
               </el-menu-item-group>
             </el-sub-menu>
@@ -25,16 +25,44 @@
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
+const route = useRoute()
 const routers = useRouter().getRoutes().filter(v => {
   let path = v.path
   let pt = path.split('/').filter(j => j != '')
   return path != '/' && pt.length == 1
 })
 
-console.log('routers => ', routers)
-console.log(useRoute())
+const defaultActive = ref('')
+
+onMounted(() => {
+  setTimeout(() => {
+    console.log('routers => ', routers)
+    console.log('route => ', route)
+
+    const paths = route.fullPath.split('/').filter(v => v != '')
+    console.log(paths)
+    if (paths.length > 1) {
+      let [p1, p2] = paths
+      for (let i in routers) {
+        let iv = routers[i]
+        if (iv.path == `/${p1}`) {
+          for (let j in iv.children) {
+            let jv = iv.children[j]
+            if (jv.path == p2) {
+              let index = `${i}-${j}`
+              defaultActive.value = index
+              break
+            }
+          }
+          break
+        }
+      }
+    }
+  }, 300);
+})
 
 
 </script>

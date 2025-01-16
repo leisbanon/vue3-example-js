@@ -7,7 +7,7 @@
 pre {
   background: #282c34;
   color: #fff;
-  white-space: pre-line;
+  /* white-space: pre-line; */
   padding: 15px;
   line-height: 22px;
   border-radius: 6px;

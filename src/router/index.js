@@ -5,11 +5,6 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: () => {
-        return {
-          path: '/basic/ref',
-        }
-      }
     },
     {
       path: '/basic',
@@ -37,6 +32,55 @@ const router = createRouter({
           meta: { name: '页面组件' }
         },
       ],
+    },
+    {
+      path: '/api',
+      component: () => import('@/views/api/index.vue'),
+      meta: { name: 'API' },
+      children: [
+        {
+          path: 'globalApi',
+          component: () => import('@/views/api/GlobalAPI.vue'),
+          meta: { name: '全局API' }
+        },
+        {
+          path: 'groupApi',
+          component: () => import('@/views/api/GlobalAPI.vue'),
+          meta: { name: '组合式API' }
+        },
+        {
+          path: 'contentApi',
+          component: () => import('@/views/api/ContextAPI.vue'),
+          meta: { name: '内置内容' }
+        },
+        {
+          path: 'componentApi',
+          component: () => import('@/views/api/ComponentAPI.vue'),
+          meta: { name: '单文件组件' }
+        },
+        {
+          path: 'highApi',
+          component: () => import('@/views/api/HighAPI.vue'),
+          meta: { name: '单文件组件' }
+        },
+      ]
+    },
+    {
+      path: '/pinia',
+      component: () => import('@/views/pinia/index.vue'),
+      meta: { name: '状态管理' },
+      children: [
+        {
+          path: 'store',
+          component: () => import('@/views/pinia/Use.vue'),
+          meta: { name: '使用' }
+        },
+        {
+          path: 'concept',
+          component: () => import('@/views/pinia/Concept.vue'),
+          meta: { name: '核心概念' },
+        }
+      ]
     }
   ],
 })
