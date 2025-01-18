@@ -1,0 +1,1 @@
+import{p as o,c as s,a,o as n,q as t,r as c}from"./index-CPTvUIiV.js";const _={__name:"index",setup(r){return t("message",{name:"Leisbanon",message:"Hello Vue3"}),o(()=>{console.log("Next Tikc...")}),(l,i)=>{const e=c("RouterView");return n(),s("main",null,[a(e)])}}};export{_ as default};
