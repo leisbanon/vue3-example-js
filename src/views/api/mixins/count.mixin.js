@@ -1,10 +1,10 @@
-import { ref } from "vue"
+import { ref } from 'vue'
 
 export const timer = (time) => {
-  return new Promise(r => {
+  return new Promise((r) => {
     setTimeout(() => {
       r()
-    }, time);
+    }, time)
   })
 }
 

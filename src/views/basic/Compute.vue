@@ -3,7 +3,9 @@
     <div class="flex flex-col leading-[25px]">
       <span>user：{{ user }}</span>
       <span>userFormat => {{ userFormat }}</span>
-      <span class="cursor-pointer underline text-blue-600" @click="user.name = 'GuanQun'">改变姓名</span>
+      <span class="cursor-pointer underline text-blue-600" @click="user.name = 'GuanQun'"
+        >改变姓名</span
+      >
     </div>
 
     <pre>
@@ -28,7 +30,7 @@ import { reactive, computed } from 'vue'
 
 const user = reactive({
   name: 'leisbanon',
-  phone: '158****9672'
+  phone: '158****9672',
 })
 
 const userFormat = computed(() => {

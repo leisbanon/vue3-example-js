@@ -21,8 +21,8 @@
 </template>
 
 <script setup>
-import Card from '@/components/Card.vue';
-import { ref } from 'vue';
+import Card from '@/components/Card.vue'
+import { ref } from 'vue'
 
 const count = ref(0)
 

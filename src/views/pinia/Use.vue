@@ -11,7 +11,9 @@
 
     <div>
       <p>UserInfo Store：{{ uinfo.data }}</p>
-      <p class="cursor-pointer text-blue-600 select-none" @click="onSetStore">设置 UserInfo Store Name</p>
+      <p class="cursor-pointer text-blue-600 select-none" @click="onSetStore">
+        设置 UserInfo Store Name
+      </p>
     </div>
 
     <pre>

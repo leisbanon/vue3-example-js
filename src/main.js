@@ -11,8 +11,8 @@ import App from './App.vue'
 import router from './router'
 
 const app = createApp(App)
-console.log('version => ', app.version)
-console.log('config => ', app.config)
+// console.log('version => ', app.version)
+// console.log('config => ', app.config)
 
 app.use(createPinia())
 app.use(router)

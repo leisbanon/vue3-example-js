@@ -18,7 +18,7 @@ const props = defineProps(['title', 'count'])
 const emit = defineEmits(['count-change'])
 
 console.log('props => ', {
-  ...props
+  ...props,
 })
 
 const onCount = (value) => {

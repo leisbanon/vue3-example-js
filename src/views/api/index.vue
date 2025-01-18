@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { nextTick, provide, useId } from 'vue';
+import { nextTick, provide, useId } from 'vue'
 
 const message = {
   name: 'Leisbanon',
@@ -17,8 +17,8 @@ nextTick(() => {
   console.log('Next Tikc...')
 })
 
-console.log('useId => ', useId()) // v-0
-console.log('useId => ', useId()) // v-1
+// console.log('useId => ', useId()) // v-0
+// console.log('useId => ', useId()) // v-1
 </script>
 
 <style scoped lang="scss"></style>

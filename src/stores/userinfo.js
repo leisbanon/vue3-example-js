@@ -1,5 +1,5 @@
-import { defineStore } from "pinia";
-import { reactive } from "vue";
+import { defineStore } from 'pinia'
+import { reactive } from 'vue'
 
 export const userInfoStore = defineStore('userInfo', () => {
   let data = reactive({
@@ -13,6 +13,7 @@ export const userInfoStore = defineStore('userInfo', () => {
   }
 
   return {
-    data, update
+    data,
+    update,
   }
 })

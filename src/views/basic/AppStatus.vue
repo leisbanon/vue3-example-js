@@ -44,7 +44,15 @@
 </template>
 
 <script setup>
-import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, ref } from 'vue'
+import {
+  onBeforeMount,
+  onBeforeUnmount,
+  onBeforeUpdate,
+  onMounted,
+  onUnmounted,
+  onUpdated,
+  ref,
+} from 'vue'
 
 const status = ref(false)
 

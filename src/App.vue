@@ -7,8 +7,13 @@
             <el-sub-menu v-for="(item1, index1) of routers" :key="`${index1}`" :index="`${index1}`">
               <template #title>{{ item1.meta.name }}</template>
               <el-menu-item-group>
-                <el-menu-item class="px-[0px]" v-for="(item2, index2) of item1.children" :key="`${index1}-${index2}`"
-                  @click="$router.push({ path: `${item1.path}/${item2.path}` })" :index="`${index1}-${index2}`">
+                <el-menu-item
+                  class="px-[0px]"
+                  v-for="(item2, index2) of item1.children"
+                  :key="`${index1}-${index2}`"
+                  @click="$router.push({ path: `${item1.path}/${item2.path}` })"
+                  :index="`${index1}-${index2}`"
+                >
                   {{ item2.meta.name }}
                 </el-menu-item>
               </el-menu-item-group>
@@ -25,25 +30,26 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
-const routers = useRouter().getRoutes().filter(v => {
-  let path = v.path
-  let pt = path.split('/').filter(j => j != '')
-  return path != '/' && pt.length == 1
-})
+const routers = useRouter()
+  .getRoutes()
+  .filter((v) => {
+    let path = v.path
+    let pt = path.split('/').filter((j) => j != '')
+    return path != '/' && pt.length == 1
+  })
 
 const defaultActive = ref('')
 
 onMounted(() => {
   setTimeout(() => {
-    console.log('routers => ', routers)
-    console.log('route => ', route)
+    // console.log('routers => ', routers)
+    // console.log('route => ', route)
 
-    const paths = route.fullPath.split('/').filter(v => v != '')
-    console.log(paths)
+    const paths = route.fullPath.split('/').filter((v) => v != '')
     if (paths.length > 1) {
       let [p1, p2] = paths
       for (let i in routers) {
@@ -61,10 +67,8 @@ onMounted(() => {
         }
       }
     }
-  }, 300);
+  }, 300)
 })
-
-
 </script>
 
 <style scoped lang="scss">
@@ -74,7 +78,7 @@ onMounted(() => {
 
   .el-aside {
     // border: 1px #0f0 solid;
-    border-right: 1px #DDD solid;
+    border-right: 1px #ddd solid;
   }
 
   .el-main {
