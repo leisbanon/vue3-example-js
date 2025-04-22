@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,7 +77,19 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: '/tools',
+      component: () => import('@/views/tools/index.vue'),
+      meta: { name: '工具栈' },
+      children: [
+        {
+          path: 'lang',
+          component: () => import('@/views/tools/Lang.vue'),
+          meta: { name: '国际化' },
+        },
+      ],
+    },
   ],
-})
+});
 
-export default router
+export default router;

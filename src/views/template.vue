@@ -1,7 +1,24 @@
 <template>
-  <main class="text-[14px]"></main>
+  <div class="classname"></div>
 </template>
 
-<script setup></script>
+<script setup>
+import { getCurrentInstance, reactive, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+const { proxy } = getCurrentInstance();
+const route = useRoute();
+const router = useRouter();
 
-<style scoped lang="scss"></style>
+// Refs
+
+// Props
+
+// Data
+
+// Methods
+</script>
+
+<style scoped lang="less">
+.classname {
+}
+</style>

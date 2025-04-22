@@ -1,7 +1,9 @@
 @import './base.css';
 
-#app {
-  /* border: 1px #F00 solid; */
+:root, body, [data-color-scheme] {
+  color-scheme: light !important;
+  background-color: white !important;
+  color: #333 !important;
 }
 
 pre {
@@ -15,3 +17,9 @@ pre {
   overflow: auto;
   margin: 12px 0;
 }
+
+
+:root {
+  color-scheme: light !important;
+}
+
